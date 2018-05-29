@@ -36,7 +36,7 @@ import System.IO.FileSystem as FS
 import System.IO.Path as Path
 
 
-removeAll : String -> Actors.Result FS.Error () -> Actors.Msg
+removeAll : String -> Actors.Result.Result FS.Error () -> Actors.Msg
 removeAll name recipient =
 	FS.isDirectory name
     [|
@@ -66,3 +66,6 @@ removeAll name recipient =
           )
     |]
 ```
+
+The above code can be simplified further but it is worthwhile to unpack the `Actors.Result`
+contents a little further.
